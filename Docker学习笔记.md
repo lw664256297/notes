@@ -96,6 +96,82 @@ docker restart xxxx(Docker id)
 
 > Docker 安装 MQTT
 
+- 拉取 MQTT
+
+```bash
+docker pull eclipse-mosquitto
+```
+
+- 创建 MQTT 配置目录
+
+```bash
+mkdir mqttConfig/config
+mkdir mqttConfig/data
+mkdir mqttConfig/log
+
+# 赋予 Log目录最大权限
+sudo chmod -R 777 mqttConfig/log
+
+```
+
+- 创建配置文件
+
+```bash
+# 配置文件
+touch mosquitto.conf
+```
+
+内容如下:
+
+        persistence true
+        persistence_location /mosquitto/data
+        log_dest file /mosquitto/log/mosquitto.log
+
+        port 1883
+        listener 9001
+        protocol websockets
+
+        # 关闭匿名模式
+        allow_anonymous false
+
+        # 指定密码文件
+        password_file /mosquitto/config/pwfile.conf
+
+        #备注：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
+
+- 创建用户名及密码文件
+
+```bash
+touch pwfile.conf # 用户名及密码配置文件
+```
+
+- 创建运行 Mosquitto 的脚本
+
+```bash
+# 备注:请注意脚本的路径,请修改自己的脚本路径
+docker run -it --name=mqtt001 --privileged  -p 1883:1883 -p 9001:9001 -v /Users/bigbird/mqttConfig/config:/mosquitto/config/ -v /Users/bigbird/mqttConfig/data:/mosquitto/data -v /Users/bigbird/mqttConfig/log:/mosquitto/log -d  eclipse-mosquitto
+```
+
+- 创建用户名和密码
+
+```bash
+# 进入mosquitto容器
+docker exec -it xxxx(docker ID)  sh
+
+#对于passworf_file，可以复制一份模板，或者创建一个空文件
+touch /mosquitto/config/pwfile.conf
+chmod -R 755 /mosquitto/config/pwfile.conf
+
+# 使用mosquitto_passwd命令创建用户，第一个test是用户名，第二个test2019是密码
+mosquitto_passwd -b /mosquitto/config/pwfile.conf test test2019
+```
+
+- 重启容器
+
+```bash
+docker restart xxxx(Docker Id)
+```
+
 > Docker 部署 V2ray
 
 > Docker 搭建 WebServer
