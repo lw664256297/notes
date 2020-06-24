@@ -174,12 +174,12 @@ docker restart xxxx(Docker Id)
 
 > Docker 部署 V2ray
 
+- 解压 file 文件，执行 gogogo.sh 脚本
+
+  备注：注意修改 gogogo.sh 里面的路径 (你服务器路径)
+
 > Docker 搭建 WebServer
 
 > Docker 搭建 APIserver
 
 > Docker 实际使用中的注意事项及问题
-
-```
-
-```
