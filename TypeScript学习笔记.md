@@ -2,23 +2,20 @@
 
 ## 目录
 
-- [参考详细文档](#参考TypeScript详细文档)
-- [变量声明类型](#变量声明类型)
-- [Interface 接口](#Interface接口)
-- [Interface 继承](#Interface继承)
+- [参考详细文档](#参考-TypeScript-详细文档)
+- [变量](#变量)
+- [Function 函数](#Function-函数)
+- [Interface 接口](#Interface-接口)
+- [Class 类](#Class-类)
+- [DOM 操作](#DOM-操作)
 
-- [Function 函数](#Function函数)
-- [Function 继承](#Function继承)
+- [TypeScript 实际使用中的注意事项及问题](#TypeScript-实际使用中的注意事项及问题)
 
-- [Function 继承 接口](#Function继承接口)
-
-- [TypeScript 实际使用中的注意事项及问题](#TypeScript实际使用中的注意事项及问题)
-
-> 参考 TypeScript 详细文档
+## 参考-TypeScript-详细文档
 
 - [点击我跳转 TypeScript 详细文档页面](https://ts.xcatliu.com/introduction/what-is-typescript.html)
 
-## 变量声明类型
+## 变量
 
 ```typescript
 let age: number = 12;
@@ -29,7 +26,7 @@ let _undefined: undefined = undefined;
 let nowName: number | string = 1;
 ```
 
-## Function 函数
+## Function-函数
 
 ```typescript
 // 无返回值
@@ -68,7 +65,7 @@ function SaySan(name: string | number): boolean {
 }
 ```
 
-## Interface 接口
+## Interface-接口
 
 > interface 声明
 
@@ -88,7 +85,7 @@ interface Adata {
 
 > Interface 继承
 
-```bash
+```typescript
 interface Adata {
   name: string;
 }
@@ -97,23 +94,121 @@ interface Bdata extends Adata {
   age: number;
 }
 
+// 多个继承
+interface Ddata extends Adata, Bdata {
+  sex: string;
+}
+
 let cData: Bdata = {
   name: "张德帅",
   age: 18,
 };
 console.log(cData);
+
+let DDData: Ddata = {
+  name: "张德帅",
+  age: 18,
+  sex: "男",
+};
+console.log(DDData);
 ```
 
-## class 类
+## class-类
+
+> class 声明
+
+```typescript
+class Qdata {
+  public name: string;
+  public age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  Say() {
+    console.log(`你好，我叫-----:${this.name}`);
+  }
+}
+let _Qdata = new Qdata("张德帅", 18);
+_Qdata.Say();
+```
 
 > class 继承 class
 
-> class 继承 interface
+```typescript
+class WData extends Qdata {
+  public sex: string;
+  constructor(name: string, age: number, sex: string) {
+    // 继承必须使用super函数
+    super(name, age);
+    this.sex = sex;
+  }
+  Say() {
+    super.Say();
+  }
+}
+let _WData = new WData("张德帅2", 18, "男");
+_WData.Say();
+```
 
-> class 多个继承
+> class 实现 Interface
 
-## 面向对象编程
+**_备注： Interface 只做声明，不做实现_**
 
-## 函数式编程
+```typescript
+interface Tdata {
+  name: string;
+  age: number;
+  Say(): void;
+}
 
-> TypeScript 实际使用中的注意事项及问题
+interface Ydata {
+  sex: string;
+}
+
+// 单个 Interface
+class Tdatak implements Tdata {
+  public name: string;
+  public age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  Say() {
+    console.log(`我叫：${this.name}`);
+  }
+}
+let _Tdatak = new Tdatak("张德帅3", 18);
+_Tdatak.Say();
+
+// 多个Interface
+class TdataKs implements Tdata, Ydata {
+  public name: string;
+  public age: number;
+  public sex: string;
+  constructor(name: string, age: number, sex: string) {
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+  }
+  Say() {
+    console.log(`我叫：${this.name}`);
+  }
+}
+let _TdataKs = new TdataKs("张德帅4", 18, "男");
+_TdataKs.Say();
+```
+
+## DOM-操作
+
+```typescript
+let body: HTMLElement = document.body;
+let allDiv: NodeList = document.querySelectorAll("div");
+document.addEventListener("click", function (e: MouseEvent) {
+  // Do something
+});
+```
+
+## TypeScript-实际使用中的注意事项及问题
+
+- 浏览器无法运行 TypeScript
