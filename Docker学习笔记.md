@@ -69,7 +69,7 @@ docker exec -it  xxx /bin/bash
 
 ```
 
-> Docker 安装及部署 Mysql
+## Docker 安装及部署 Mysql
 
 ```bash
 # docker 中下载 mysql
@@ -94,15 +94,15 @@ docker restart xxxx(Docker id)
 
 ```
 
-> Docker 安装 MQTT
+## Docker 安装 MQTT
 
-- 拉取 MQTT
+> 拉取 MQTT
 
 ```bash
 docker pull eclipse-mosquitto
 ```
 
-- 创建 MQTT 配置目录
+> 创建 MQTT 配置目录
 
 ```bash
 mkdir mqttConfig/config
@@ -114,7 +114,7 @@ sudo chmod -R 777 mqttConfig/log
 
 ```
 
-- 创建配置文件
+> 创建配置文件
 
 ```bash
 # 配置文件
@@ -139,20 +139,20 @@ touch mosquitto.conf
 
         #备注：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
 
-- 创建用户名及密码文件
+> 创建用户名及密码文件
 
 ```bash
 touch pwfile.conf # 用户名及密码配置文件
 ```
 
-- 创建运行 Mosquitto 的脚本
+> 创建运行 Mosquitto 的脚本
 
 ```bash
 # 备注:请注意脚本的路径,请修改自己的脚本路径
 docker run -it --name=mqtt001 --privileged  -p 1883:1883 -p 9001:9001 -v /Users/bigbird/mqttConfig/config:/mosquitto/config/ -v /Users/bigbird/mqttConfig/data:/mosquitto/data -v /Users/bigbird/mqttConfig/log:/mosquitto/log -d  eclipse-mosquitto
 ```
 
-- 创建用户名和密码
+> 创建用户名和密码
 
 ```bash
 # 进入mosquitto容器
@@ -166,20 +166,50 @@ chmod -R 755 /mosquitto/config/pwfile.conf
 mosquitto_passwd -b /mosquitto/config/pwfile.conf test test2019
 ```
 
-- 重启容器
+> 重启容器
 
 ```bash
 docker restart xxxx(Docker Id)
 ```
 
-> Docker 部署 V2ray
+> MQTT 部署过程中出现的问题
+
+1592979788: Error: Unable to open log file /Users/bigbird/mqttconfig/mosquitto/log/mosquitto.log for writing.
+
+- 解决方法
+
+  1.查看你的 mosquitto.conf 文件，路径是否正确!!! 这里的路径为 docker 的路径，千万别写成自己的路径!!!
+
+        persistence true
+        persistence_location /mosquitto/data
+        log_dest file /mosquitto/log/mosquitto.log
+
+        port 1883
+        listener 9001
+        protocol websockets
+
+        # 关闭匿名模式
+        allow_anonymous false
+
+        # 指定密码文件
+        password_file /mosquitto/config/pwfile.conf
+
+        #备注：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
+
+  2.文件权限问题, 对 mosquitto/log 赋予最高权限
+
+  ```bash
+    sudo chmod -R 777 mosquitto/log
+  ```
+
+## Docker 部署 V2ray
 
 - 解压 file 文件，执行 gogogo.sh 脚本
 
   备注：注意修改 gogogo.sh 里面的路径 (你服务器路径)
 
-> Docker 搭建 WebServer
+## Docker 搭建 WebServer
 
-> Docker 搭建 APIserver
+## Docker 搭建 APIserver
 
-> Docker 实际使用中的注意事项及问题
+## Docker 实际使用中的注意事项及问题

@@ -22,6 +22,14 @@
 
 > Interface 接口
 
+```typescript
+// 定义
+interface Adata {
+  name: string;
+  age: number;
+}
+```
+
 > Interface 继承
 
 > Function 函数
