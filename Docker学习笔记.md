@@ -13,19 +13,19 @@
 
 - [Docker 实际使用中的注意事项及问题](#Docker实际使用中的注意事项及问题)
 
-> 参考文档
+## 参考文档
 
 [点击我跳转到 Docker 详细文档](https://www.runoob.com/docker/docker-tutorial.html)
 
-> 环境安装
+## 环境安装
 
-- Mac 安装 Docker
+> Mac 安装 Docker
 
 ```bash
 brew cask install docker
 ```
 
-- Linux 安装 Docker
+> Linux 安装 Docker
 
 ```bash
 # 使用 官方安装脚本自动安装
@@ -35,7 +35,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 ```
 
-> Docker 基础命令
+## Docker 基础命令
 
 - [点击我查看命令详细内容](https://www.runoob.com/docker/docker-run-command.html)
 
