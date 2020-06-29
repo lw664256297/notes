@@ -18,30 +18,30 @@
 
 - [GO 实际使用中的注意事项及问题](#Go实际使用中的注意事项及问题)
 
-> 变量
+## 变量
 
-> 关键字
+## 关键字
 
-> Go 函数
+## Go 打印控制台
 
-> Go 指针
+## Go 函数
 
-> Array 数组
+## Go 指针
 
-> Slice 切片
+## Array 数组
 
-> Struct 构造体
+## Slice 切片
 
-> Type 自定义类型
+## Struct 构造体
 
-> GoJson
+## Type 自定义类型
 
-> GoMap
+## GoJson
 
-> Go 并发
+## GoMap
 
-> Go 打印控制台
+## Go 并发
 
-> Go 基础命令
+## Go 基础命令
 
-> Go 实际使用中的注意事项及问题
+## Go 实际使用中的注意事项及问题
