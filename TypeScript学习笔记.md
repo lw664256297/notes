@@ -211,4 +211,37 @@ document.addEventListener("click", function (e: MouseEvent) {
 
 ## TypeScript-实际使用中的注意事项及问题
 
-- 浏览器无法运行 TypeScript
+### 1.浏览器无法运行 TypeScript
+
+### 2.报错 Element implicitly has an 'any' type because index expression is not of type 'number'.
+
+备注： Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'typeof
+
+> mock.ts
+
+```typescript
+export function text(): boolean {
+  return false;
+}
+
+export function setAasd(): string {
+  return "asdgjhkj";
+}
+```
+
+> request.ts
+
+```typescript
+interface MockIndex {
+  text: "text";
+}
+import * as Mock from "@/api/Mock.ts";
+const request = (MockIndex: keyof MockIndex) => {
+  // 模拟异步请求数据
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Mock[MockIndex]);
+    }, 100);
+  });
+};
+```
