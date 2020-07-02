@@ -23,4 +23,26 @@
 - 下载微信开发者工具
 - [下载 Hbuilder X (感谢程序员的默默无私奉献，非常棒的开发工具)](https://www.dcloud.io/hbuilderx.html)
 
-这里假设你安装了 Vue-cli，并且会使用，否者请移步 Vue 学习笔记
+        注意：这里假设你安装了 Vue-cli，并且会使用，否者请移步 Vue 学习笔记
+
+## 创建项目
+
+> cli 创建
+
+```bash
+vue create -p dcloudio/uni-preset-vue j-h5-uni-app
+```
+
+> Hbuilder X 创建
+
+- [点击我查看详细教程](https://uniapp.dcloud.io/quickstart)
+
+## 改造项目结构
+
+> 当前结构
+
+![图片]('../img/j-h5-uni-app-pic01.jpg')
+
+> 改造后的目录结构
+
+![图片]('../img/j-h5-uni-app-pic01.jpg')
