@@ -46,3 +46,34 @@ vue create -p dcloudio/uni-preset-vue j-h5-uni-app
 > 改造后的目录结构
 
 ![图片]('../img/j-h5-uni-app-pic01.jpg')
+
+> 请求接口封装
+
+```js
+const BASE_URL = 'https://freshgosit.newhopedairy.cn/api';
+const token = ``
+   
+export const request = (url, data, method) =>{
+	return new Promise((resolve,reject)=>{
+		uni.request({
+			url:BASE_URL + url,
+			method:method || 'GET',
+			data:data || {},
+			header:{
+				'Authorization': token //自定义请求头信息
+			},
+			success:(res)=>{
+				resolve(res)
+			},
+			fail:(err)=>{
+				uni.showToast({
+					title:'请求失败'
+				})
+				reject(err)
+			}
+		})
+	})
+}
+export default request;
+
+```
