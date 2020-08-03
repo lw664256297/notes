@@ -52,3 +52,10 @@ vue create hello-world
   </div>
 </NavHead>
 ```
+
+> 使用 typeScript 的时候 ref 报错
+
+```ts
+// 正确写法
+(this.$refs.PopAddMoneyLog as PopAddMoneyLog).isShow();
+```
