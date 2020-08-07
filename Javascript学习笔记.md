@@ -14,3 +14,9 @@ let arr = [
 ];
 console.log(arr.filter((item) => item.a === "苹果")); //[{a:'苹果',b:'桃子',c:'吃'},{a:'苹果',b:'菠萝',c:'不吃'}]
 ```
+
+> 快速删除数组某个指定数据
+
+```javascript
+ol.splice(ol.findIndex((item) => item.skuCode === _skuCode),1);
+```
