@@ -46,6 +46,10 @@ docker images -a
 # 查看容器
 docker ps -a
 
+# 创建容器
+# 注意！！！！：有些
+docker run my/python:v1 /bin/bash ##my/python:v1为镜像名和标签
+
 # 删除镜像
 docker rim xxxxx(容器id)
 
@@ -213,3 +217,23 @@ docker restart xxxx(Docker Id)
 ## Docker 搭建 APIserver
 
 ## Docker 实际使用中的注意事项及问题
+
+> docker stat/bin/bash:没有这样的文件或目录
+
+```bash
+# 创建图像后,请检查：
+docker inspect $image_name
+
+# --------------------------------------------
+并检查CMD选项中的内容,对于繁忙的框,它应该是：
+"Cmd"：[
+     "/bin/sh"
+]
+也许你在./mkimage.sh中覆盖了CMD选项
+# --------------------------------------------
+如果是/bin/sh 那么在创建容器的使用使用/bin/sh，进入也使用/bin/sh
+# 创建容器
+docker run xxxx /bin/sh
+# 进入容器
+docker exec -it xxxxx /bin/sh
+```
