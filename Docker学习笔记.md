@@ -71,6 +71,16 @@ docker restart
 # 进入容器 在容器 xxx 中开启一个交互模式的终端
 docker exec -it  xxx /bin/bash
 
+# docker将本地目录挂载到容器
+docker run -d
+\ -v /home/es_config/plugins:/usr/share/elasticsearch/plugins
+\ -p 0.0.0.0:9200:9200
+\ -p 0.0.0.0:9300:9300
+\ -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+\ --name=xxx xxx(镜像名)
+
+# 其中 -v /home/es_config/plugin:/usr/share/elasticsearch/plugin 冒号:前面是宿主机的文件夹地址，冒号:后面是docker容器中的文件夹地址。
+
 ```
 
 ## Docker 安装及部署 Mysql
