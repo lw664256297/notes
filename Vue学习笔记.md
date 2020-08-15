@@ -59,3 +59,21 @@ vue create hello-world
 // 正确写法
 (this.$refs.PopAddMoneyLog as PopAddMoneyLog).isShow();
 ```
+
+> this.\$emit
+
+```js
+// 组件定义一个方法，使用关关键字 this.$emit 暴露出来;
+submit() {
+  this.$emit('submit', true)
+},
+
+// 使用
+<xxx
+@submit="submitaa"
+></xxx>
+
+submitaa(){
+  console.log('-----1')
+}
+```
