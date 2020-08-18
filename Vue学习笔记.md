@@ -60,6 +60,17 @@ vue create hello-world
 (this.$refs.PopAddMoneyLog as PopAddMoneyLog).isShow();
 ```
 
+> 子组件调用父组件方法
+
+```js
+// 父组件方法
+fatherMethod() {
+  console.log('father组件');
+}
+// 子组件
+this.$parent.fatherMethod();
+```
+
 > this.\$emit
 
 ```js
