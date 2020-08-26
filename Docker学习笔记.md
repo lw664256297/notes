@@ -247,3 +247,42 @@ docker run xxxx /bin/sh
 # 进入容器
 docker exec -it xxxxx /bin/sh
 ```
+
+> NetworkManager 消耗的内存量随着容器启动/停止的每次迭代而增加，即使在所有容器已被停止和删除之后也不会减少。
+
+### 短期处理方法：
+
+执行以下命令重启 NetworkManager 服务。
+
+```bash
+systemctl restart NetworkManager
+```
+
+### 长期处理方法：
+
+CentOS 7 操作系统云服务器
+执行以下命令停止 NetworkManager 服务，改用 network 管理网络
+
+```bash
+systemctl disable NetworkManager ; /sbin/chkconfig network on
+```
+
+```bash
+kill `pgrep -o dhclient` ; systemctl stop NetworkManager ;systemctl start network
+```
+
+说明：
+出现 network 启动失败可能为系统内置多网卡配置配置文件导致，处理方法参考多网卡配置文件导致 network 启动失败处理。
+
+Ubuntu16.04 操作系统
+执行以下命令使用 networking 管理网络。
+
+```bash
+systemctl enable networking ;systemctl disable NetworkManager
+```
+
+# kill `pgrep -o dhclient` ;systemctl stop NetworkManager ;systemctl start networking
+
+```bash
+systemctl restart NetworkManager
+```
