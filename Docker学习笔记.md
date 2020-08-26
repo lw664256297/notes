@@ -281,8 +281,6 @@ Ubuntu16.04 操作系统
 systemctl enable networking ;systemctl disable NetworkManager
 ```
 
-# kill `pgrep -o dhclient` ;systemctl stop NetworkManager ;systemctl start networking
-
 ```bash
-systemctl restart NetworkManager
+ kill `pgrep -o dhclient` ;systemctl stop NetworkManager ;systemctl start networking
 ```
