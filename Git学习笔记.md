@@ -70,11 +70,8 @@ $ git config user.name "freedom"
 $ git config user.password "123456"
 $ git config user.email "xxx@qq.com"
 # 3.设置git用户名、密码、邮箱的配置（全局配置）
-$ git config --global user.name 用户命
-$ git config --global user.name freedom
-$ git config --global user.password 密码
-$ git config --global user.password abc0506abc
-$ git config --global user.password 邮箱
+$ git config --global user.name "asdasd"
+$ git config --global user.password "asdsa"
 $ git config --global user.email "XXX@qq.com"
 
 
