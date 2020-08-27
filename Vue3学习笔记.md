@@ -8,4 +8,6 @@
 
 ```bash
 yarn create vite-app my-vue3
+
+yarn install
 ```
