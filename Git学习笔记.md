@@ -80,6 +80,9 @@ $ git config user.name "freedom"
 # 4.修改git用户名、密码、邮箱的配置（全局配置）
 $ git config --global user.name "freedom"
 
+# 合并单个版本号
+git cherry-pick  xxxx(版本号)
 
-// git cherry-pick
+# 合并某分支到当前分支
+git merge name(分支)
 ```
