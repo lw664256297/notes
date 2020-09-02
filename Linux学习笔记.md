@@ -44,9 +44,19 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restr
 > linux 配置多个 环境变量
 
 ```bash
-export NODE_HOME=/usr/local/node-v12.18.3-linux-x64
-export GO_HOME=/usr/local/go/bin
-export PATH=$GO_HOME:$NODE_HOME/bin:$PATH
+# python3
+export PYTHON3="/Library/Frameworks/Python.framework/Versions/3.6/bin"
+# android-sdk
+export ANDROID_HOME_TOOLS=/usr/local/opt/android-sdk/tools
+export ANDROID_HOME_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
+
+# go
+export GOROOT="/usr/local/Cellar/go/1.13.4/libexec"
+export GOPATH=/Users/bigbird/goCode
+export GOBIN=$GOPATH/bin
+
+export PATH=$PYTHON3:$ANDROID_HOME_TOOLS:$ANDROID_HOME_PLATFORM_TOOLS:$GOROOT:$GOPATH:$GOBIN:$PATH
+
 ```
 
 > linux 查看系统活动监视器
