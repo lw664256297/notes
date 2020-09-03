@@ -64,3 +64,15 @@ export PATH=$PYTHON3:$ANDROID_HOME_TOOLS:$ANDROID_HOME_PLATFORM_TOOLS:$GOROOT:$G
 ```bash
 gnome-system-monitor
 ```
+
+> 使用 mac 的 Iterm2
+
+        使用 Iterm2 的时候，发现.bash_profile 修改完后，没有生效,每次都必须 source 后才生效
+        1.解决办法,修改文件
+
+```bash
+# 打开文件
+vim /Users/xxx/.zshrc
+# 增加命令
+source /Users/xxx/.bash_profile
+```
