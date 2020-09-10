@@ -86,3 +86,11 @@ git cherry-pick  xxxx(版本号)
 # 合并某分支到当前分支
 git merge name(分支)
 ```
+
+## vscode 报错
+
+        it's not possible to change the commit message in the middle of rebase. please complete the rebase operation and use interactive rebase insetead
+
+重新设置不会在后台发生。“进行中的重新设置”表示您开始了重新设置，并且由于冲突导致重新设置被中断。您必须恢复变基（git rebase --continue）或中止变基（git rebase --abort）。
+
+正如错误消息所 git rebase --continue 提示的那样，您要求 git 应用一个补丁，导致补丁为空。最有可能的是，这意味着该补丁已被应用，您想使用来删除它 git rebase --skip。
