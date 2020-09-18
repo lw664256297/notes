@@ -88,3 +88,43 @@ submitaa(){
   console.log('-----1')
 }
 ```
+
+## 图片引用
+
+```html
+// 方法已一
+<template>
+  <div class="AboutUs-main">
+    <b-container fluid>
+      <div class="about-head">
+        <b-img :src="aboutImgSrc" fluid alt="公司前台"></b-img>
+      </div>
+    </b-container>
+  </div>
+</template>
+<script>
+  // 关于我们-公司图片
+  import imgSrc1 from "@images/AboutUs/AboutUsHead.png";
+  export default {
+    data() {
+      return {
+        aboutImgSrc: imgSrc1,
+      };
+    },
+  };
+</script>
+
+// 方法已二
+<template>
+  <img :src="imgsrc" />
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        imgsrc: require("../../images/ICON-electronicbilling.png"),
+      };
+    },
+  };
+</script>
+```
