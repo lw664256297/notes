@@ -128,3 +128,25 @@ submitaa(){
   };
 </script>
 ```
+
+## vue.cconfig.js 配置
+
+```js
+const path = require("path");
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+module.exports = {
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set("@public", resolve("public"))
+      .set("@", resolve("src"))
+      .set("@components", resolve("src/components"))
+      .set("@mixins", resolve("src/mixins"))
+      .set("@views", resolve("src/views"))
+      .set("@images", resolve("src/assets/images"))
+      .set("@css", resolve("src/assets/css"));
+  },
+};
+```
