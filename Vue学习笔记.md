@@ -150,3 +150,10 @@ module.exports = {
   },
 };
 ```
+
+## 解决 vue 新增对象，没有双向绑定,浅拷贝
+
+```js
+// 解决-vue双向绑定,新增对象没有双向绑定
+this.newGoodItem = Object.assign({}, this.newGoodItem);
+```
