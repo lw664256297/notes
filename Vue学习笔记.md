@@ -157,3 +157,16 @@ module.exports = {
 // 解决-vue双向绑定,新增对象没有双向绑定
 this.newGoodItem = Object.assign({}, this.newGoodItem);
 ```
+
+## router 跳转
+
+```js
+// 字符串
+this.$router.push("/home/first");
+
+// 对象
+this.$router.push({ path: "/home/first" });
+
+// 命名的路由
+this.$router.push({ name: "home", params: { userId: wise } });
+```
