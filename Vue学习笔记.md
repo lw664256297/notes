@@ -170,3 +170,8 @@ this.$router.push({ path: "/home/first" });
 // 命名的路由
 this.$router.push({ name: "home", params: { userId: wise } });
 ```
+
+## vuex 传值
+```js
+@Getter("navTitle") public navTitle!: string;
+```
