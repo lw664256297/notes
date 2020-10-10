@@ -172,6 +172,8 @@ this.$router.push({ name: "home", params: { userId: wise } });
 ```
 
 ## vuex 传值
+
 ```js
+import { Getter } from "vuex-class";
 @Getter("navTitle") public navTitle!: string;
 ```
