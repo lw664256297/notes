@@ -177,3 +177,17 @@ this.$router.push({ name: "home", params: { userId: wise } });
 import { Getter } from "vuex-class";
 @Getter("navTitle") public navTitle!: string;
 ```
+
+## 改变vue组件样式使用deep
+
+```css
+/deep/ {
+  .van-pull-refresh {
+    min-height: 100%;
+  }
+  .van-list__finished-text {
+    line-height: 50px;
+    margin-top: -7px;
+  }
+}
+```
