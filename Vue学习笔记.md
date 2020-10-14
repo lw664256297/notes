@@ -178,7 +178,7 @@ import { Getter } from "vuex-class";
 @Getter("navTitle") public navTitle!: string;
 ```
 
-## 改变vue组件样式使用deep
+## 改变 vue 组件样式使用 deep
 
 ```css
 /deep/ {
@@ -190,4 +190,28 @@ import { Getter } from "vuex-class";
     margin-top: -7px;
   }
 }
+```
+
+## 代理设置
+
+```json
+devServer: {
+    proxy: {
+      // 请求代理服务器
+      "/api": {
+        //前缀
+        target: "http://47.xxx.xxx.xx:7773", //代理目标地址
+        // target: 'http://192.168.1.130:7773',
+        changeOrigin: true,
+        pathRewrite: {
+          // 在发出请求后将/api替换为''空值，这样不影响接口请求
+          "^/api": " ",
+        },
+      },
+    },
+    host: "localhost", //指定使用一个 host。默认是 localhost，这里默认值即可
+    port: 8080, //指定端口
+    hot: true, // 开启热更新
+    https: false, // 是否开启https模式
+  },
 ```
