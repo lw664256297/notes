@@ -158,7 +158,7 @@ module.exports = {
 this.newGoodItem = Object.assign({}, this.newGoodItem);
 ```
 
-## router 跳转
+## router 跳转--路由传值
 
 ```js
 // 字符串
@@ -169,6 +169,9 @@ this.$router.push({ path: "/home/first" });
 
 // 命名的路由
 this.$router.push({ name: "home", params: { userId: wise } });
+
+// 获取
+let id = this.$route.query.id;
 ```
 
 ## vuex 传值
