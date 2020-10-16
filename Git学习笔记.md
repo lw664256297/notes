@@ -85,6 +85,9 @@ git cherry-pick  xxxx(版本号)
 
 # 合并某分支到当前分支
 git merge name(分支)
+
+# 设置本地分支为线上分支
+git branch --set-upstream-to=origin/hotfix hotfix
 ```
 
 ## vscode 报错
