@@ -89,6 +89,9 @@ docker run -d
 # docker 中下载 mysql
 docker pull mysql
 
+# 树莓派安装mysql (树莓派的架构为arm)
+docker pull hypriot/rpi-mysql
+
 #启动
 docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123!a -d mysql
 

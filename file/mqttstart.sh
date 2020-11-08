@@ -1,0 +1,1 @@
+docker run -it --name=mqtt001 --privileged -p 1883:1883 -p 9001:9001 -v /home/pi/mqttConfig/config:/mosquitto/config/ -v /home/pi/mqttConfig/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /home/pi/mqttConfig/data:/mosquitto/data -v /home/pi/mqttConfig/log:/mosquitto/log -d eclipse-mosquitto
