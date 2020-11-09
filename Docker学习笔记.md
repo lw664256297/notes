@@ -134,7 +134,7 @@ sudo chmod -R 777 mqttConfig/log
 > 创建配置文件
 
 ```bash
-# 配置文件
+# 进入mqttConfig/config目录，创建配置文件
 touch mosquitto.conf
 ```
 
@@ -159,7 +159,8 @@ touch mosquitto.conf
 > 创建用户名及密码文件
 
 ```bash
-touch pwfile.conf # 用户名及密码配置文件
+# 进入mqttConfig/config目录，创建用户名及密码配置文件
+touch pwfile.conf
 ```
 
 > 创建运行 Mosquitto 的脚本
