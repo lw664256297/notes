@@ -162,7 +162,7 @@ func main()  {
     int 转 float 强制转换， 多小数
     float 转int 强制转换， 丢精度
 
-![运算符]("./img/Jietu20200822-152802.jpg")
+![运算符]("./public/img/Jietu20200822-152802.jpg")
 
 ## Go 函数
 
