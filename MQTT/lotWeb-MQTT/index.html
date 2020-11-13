@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- A11Y：注意设置页面的 lang 属性 -->
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <!-- A11Y：打开页面时，屏幕阅读器会首先阅读 title 的内容，确保 title 准确描述页面 -->
+  <title>智能控制系统-MQTT协议</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+  <!-- A11Y：如果有无障碍方面的需求，建议使用下面的 viewport 设置，不要禁止页面缩放 -->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />-->
+  <script>
+    var docEl = document.documentElement;
+    docEl.style.fontSize = 100 / 375 * docEl.clientWidth  + 'px';
+    window.addEventListener('resize', function() {
+      docEl.style.fontSize = 100 / 375 * docEl.clientWidth + 'px';
+    });
+  </script>
+  <script type="text/javascript" src="libs/mqttws31.js"></script>
+  <link rel="stylesheet" href="libs/antui.css"/>
+  <link rel="stylesheet" href="libs/switch-btn.css">
+  <link rel="stylesheet" href="css/lotstyle.css"/>
+</head>
+<body ontouchstart="">
+    <header style="text-align: center;">
+        <h1>智能家具控制-MQTT协议</h1> 
+    </header>
+
+    <!-- 建立MQTT 连接 -->
+    <div class="mqtt-box">
+        <button type="button" class="am-button" id="mqtt-server-connection">连接MQTT Server</button>
+    </div>
+
+    <div class="am-whitespace ws10px"></div>
+    <div class="am-flexbox">
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="Q">控制继电器 高电平</button>
+        </div>
+
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="W">控制继电器 低电平</button>
+        </div>
+    </div>
+
+    <!-- 控制系统 -->
+    <div class="text-cent-p">
+        <p>控制系统</p>
+    </div>
+
+    <div class="am-flexbox">
+        <div class="am-flexbox-item"></div>
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="W">前进</button>
+        </div>
+        <div class="am-flexbox-item"></div>
+    </div>
+
+    <div class="am-flexbox">
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="A">向左</button>
+        </div>
+        <div class="am-flexbox-item"></div>
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="D">向右</button>
+        </div>
+    </div>
+
+    <div class="am-flexbox">
+        <div class="am-flexbox-item"> </div>
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="S">后退</button>
+        </div>
+        <div class="am-flexbox-item"></div>
+    </div>
+
+    <div class="am-whitespace ws5px"></div>
+    <div class="am-flexbox">
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="F">停止</button>
+        </div>
+        <!-- <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="Q">向左转</button>
+        </div>
+        <div class="am-flexbox-item">
+            <button type="button" class="am-button car-control-btn" data-type="E">向右转</button>
+        </div> -->
+    </div>
+</body>
+<script src="libs/axios.min.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/lot.js"></script>
+</html>
