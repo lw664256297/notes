@@ -16,6 +16,7 @@
 - [vue.cconfig.js-配置](#vue.cconfig.js-配置)
 - [使用-typeScript-ref-报错](#使用-typeScript-ref-报错)
 - [图片引用](#图片引用)
+- [prors-input-如何封装](#prors-input-如何封装)
 
 ### Vue 数据双向绑定原理
 
@@ -395,6 +396,26 @@ let id = this.$route.query.id;
     },
   };
 </script>
+```
+
+### prors-input-如何封装
+
+> input
+
+```js
+<input
+v-model="keyword"
+class="in-t"
+placeholder="搜索"
+@input="updateValue($event.target.value)"
+@keyup.enter="toList({ keyword: keyword }, 'new')"
+/>
+
+updateValue(val) {
+  if (val) {
+    this.keyword = val;
+  }
+},
 ```
 
 ### vue.cconfig.js-配置
