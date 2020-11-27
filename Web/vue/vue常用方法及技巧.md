@@ -16,7 +16,9 @@
 - [vue.cconfig.js-配置](#vue.cconfig.js-配置)
 - [使用-typeScript-ref-报错](#使用-typeScript-ref-报错)
 - [图片引用](#图片引用)
-- [prors-input-如何封装](#prors-input-如何封装)
+- [prors-input-输入框如何封装](#prors-input-输入框如何封装)
+- [Vue-点击事件禁止冒泡](#Vue-点击时间禁止冒泡)
+- [Vue-移入移出事件](#Vue-移入移出事件)
 
 ### Vue 数据双向绑定原理
 
@@ -398,7 +400,7 @@ let id = this.$route.query.id;
 </script>
 ```
 
-### prors-input-如何封装
+### prors-input-输入框如何封装
 
 > input
 
@@ -421,6 +423,39 @@ updateValue(val) {
 ### vue.cconfig.js-配置
 
 > 请查看 js 文件下的 vue.config.js
+
+### Vue-点击时间禁止冒泡
+
+> 这个常用于点击空白消失 div
+
+```js
+<div class="qr-share-icon" @click="togglePanel($event)"></div>
+
+togglePanel(event) {
+  this.sharUrl = window.location.href;
+  //阻止冒泡
+  event || (event = window.event);
+  event.stopPropagation
+    ? event.stopPropagation()
+    : (event.cancelBubble = true);
+  this.isShowSharQr ? this.hide() : this.show();
+},
+show() {
+  this.isShowSharQr = true;
+  document.addEventListener("click", this.hidePanel, false);
+},
+
+hide() {
+  this.isShowSharQr = false;
+  document.removeEventListener("click", this.hidePanel, false);
+},
+```
+
+## Vue-移入移出事件
+
+```html
+<div @mouseenter="enter(0)" @mouseleave="leave(0)">移动事件</div>
+```
 
 ## 其他面试题
 

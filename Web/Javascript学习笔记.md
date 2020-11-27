@@ -43,3 +43,12 @@ JSON.parse(JSON.stringify(_data));
 // 浅拷贝
 let asd = Object.assign({}, data);
 ```
+
+## 如果对象被覆盖,如何添加新的对象
+
+```js
+this.form = res.data;
+this.form = Object.assign({}, this.form, {
+  acticityTime: [new Date(res.data.startTime), new Date(res.data.endTime)],
+});
+```
