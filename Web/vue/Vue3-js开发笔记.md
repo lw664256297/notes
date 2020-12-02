@@ -2,13 +2,16 @@
 
 ## 目录
 
-- [数据绑定](#数据绑定)
+- [reactive 数据绑定](#reactive数据绑定)
 - [事件绑定](#事件绑定)
 - [生命函数周期](#生命函数周期)
 - [计算属性-computed](#计算属性-computed)
 - [props](#props)
 - [emit-自定义事件](#emit-自定义事件)
 - [ref-获取元素及子组件](#ref-获取元素及子组件)
+- [watch](#watch)
+- [vue3-组件通信](#vue3-组件通信)
+- [reactive-ref-区别](#reactive-ref-区别)
 
 ## 前言
 
@@ -16,7 +19,7 @@
 
 - [vue3 官网](https://vue3js.cn/)
 
-### 数据绑定
+### reactive 数据绑定
 
 ```html
 <template>
@@ -241,7 +244,7 @@
 
 ### ref-获取元素及子组件
 
-> ref 注意-相比 vue2.x 有很大的改变
+> ref 注意-相比 vue2.x 有很大的改变--ref 和 reactive 差别-ref 线
 
 ```html
 <!-- 子组件 -->
@@ -301,3 +304,41 @@
   };
 </script>
 ```
+
+### watch
+
+```html
+<template>
+  <div class="app">
+    <button @click="watch001">watch方法</button>
+    <!-- 这里.value可以省略 -->
+    <h4>ref值:{{ nameref }}</h4>
+  </div>
+</template>
+
+<script>
+  import { watch } from "vue";
+  export default {
+    name: "App",
+    setup() {
+      const nameref = ref("朱大常");
+      watch(nameref, (newValue, oldValue) => {
+        // 输出 前端有的玩 子君
+        console.log(newValue, oldValue);
+      });
+
+      const watch001 = () => {
+        nameref.value = "张德帅";
+      };
+      return {
+        watch001,
+        nameref,
+      };
+    },
+  };
+</script>
+```
+
+### vue3-组件通信
+
+### reactive-ref-区别
