@@ -2,7 +2,7 @@
 
 ## 目录
 
-- [安装和搭建 go 开发环境](#安装和搭建go开发环境)
+- [安装和搭建-golang-开发环境](#安装和搭建-golang-开发环境)
 - [关键字](#关键字)
 - [变量](#变量)
 - [Go 函数](#Go函数)
@@ -21,12 +21,12 @@
 
 ## 优秀的文章及教程
 
-- [点击我查看详细文档](https://www.liwenzhou.com/posts/Go/go_menu/)
-- [apiServer 教程](http://47.104.107.180/category/Go)
+- [李文周-点击我查看详细文档](https://www.liwenzhou.com/posts/Go/go_menu/)
+- [apiServer-教程](http://47.104.107.180/category/Go)
 
 ## GO webServer 实战
 
-## 安装和搭建 go 开发环境
+## 安装和搭建-golang-开发环境
 
 > Mac 安装
 
