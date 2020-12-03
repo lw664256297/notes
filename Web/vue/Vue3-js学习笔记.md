@@ -272,6 +272,7 @@
 <!-- 父组件 -->
 <template>
   <div class="app">
+    <!-- ！！！！！！！！！注意ref 必须是驼峰！！！！！ -->
     <test ref="comRef"></test>
     <button @click="clickClid001">获取子组成数据</button>
     <button @click="clickClid002">调用子组件方法</button>
@@ -340,5 +341,165 @@
 ```
 
 ### vue3-组件通信
+
+> 父组件获取子组件数据和调用子组件方法
+
+- props-破软丝 (传值)
+- ref-瑞府 （调用子组件的方法）
+
+```html
+<!-- 子组件 -->
+<template>
+  <h1>{{ title }}</h1>
+</template>
+
+<script>
+  import { ref } from "vue";
+  export default {
+    name: "menus",
+    props: {
+      title: {
+        type: String,
+        default: "menus",
+      },
+    },
+    setup() {
+      // 1. 定义响应式的数据
+      const count = ref(1);
+
+      // 2. 定义方法
+      const clidFun = () => {
+        console.log("-----k");
+      };
+      return { count, clidFun };
+    },
+  };
+</script>
+
+<!-- 父组件 -->
+<template>
+  <div class="app">
+    <menus ref="menusRef" :title="state.title"></menus>
+    <button @click="clickClid001">ref获取子组件数据</button>
+    <button @click="clickClid002">ref调用子组件方法</button>
+  </div>
+</template>
+
+<script>
+  import { ref, reactive } from "vue";
+  import menus from "./components/menus";
+  export default {
+    name: "App",
+    components: {
+      menus,
+    },
+    setup() {
+      const state = reactive({
+        title: "张德帅",
+      });
+      // 1. 创建一个组件的 ref 引用
+      const menusRef = ref(null);
+
+      // 2. 获取子组成的值
+      const clickClid001 = () => {
+        console.log(menusRef.value.count);
+      };
+
+      // 3. 调用子组件的方法
+      const clickClid002 = () => {
+        menusRef.value.clidFun();
+      };
+
+      return { state, menusRef, clickClid001, clickClid002 };
+    },
+  };
+</script>
+```
+
+> 子组件通信父组件
+
+- props
+- emit
+
+```html
+<!-- 子组件 -->
+<template>
+  <h1>{{ title }}</h1>
+  <button type="button" @click="getPropsState">props获取父组件数据</button
+  ><br />
+  <button type="button" @click="getEmitState">emit调用父组件方法</button>
+  <br />
+  <button type="button" @click="parentClik">$parent调用父组件方法</button>
+</template>
+
+<script>
+  export default {
+    name: "test001",
+    props: {
+      title: {
+        type: String,
+        default: "",
+      },
+      appFun: {
+        type: Function,
+        default: () => {},
+      },
+    },
+    setup(props, { emit }) {
+      // 1.props获取父组件数据
+      const getPropsState = () => {
+        props.appFun();
+      };
+
+      // 2.emit调用父组件方法
+      const getEmitState = () => {
+        emit("my-even");
+      };
+
+      return { getPropsState, getEmitState };
+    },
+  };
+</script>
+
+<style lang="scss" scoped></style>
+
+<!-- 父组件 -->
+<template>
+  <div>
+    <h1>子组件</h1>
+    <test01 :title="state.title" :appFun="appFun" @my-even="clidFun"></test01>
+  </div>
+</template>
+
+<script>
+  import { reactive } from "vue";
+  import test01 from "./components/test001";
+  export default {
+    name: "App",
+    components: {
+      test01,
+    },
+    setup() {
+      const state = reactive({
+        title: "子组件",
+      });
+
+      // props 方法
+      const appFun = () => {
+        console.log("--------P");
+      };
+
+      // emit 自定义事件
+      const clidFun = () => {
+        console.log("父组件方法被调用");
+      };
+
+      return { state, appFun, clidFun };
+    },
+  };
+</script>
+
+<style lang="scss" scoped></style>
+```
 
 ### reactive-ref-区别
