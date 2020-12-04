@@ -52,3 +52,29 @@ this.form = Object.assign({}, this.form, {
   acticityTime: [new Date(res.data.startTime), new Date(res.data.endTime)],
 });
 ```
+
+## 滚动条监听
+
+```js
+window.addEventListener("scroll", (e) => {
+  let a = document.body.scrollTop;
+  console.log("--a", a);
+});
+```
+
+## 窗口改变执行函数
+
+```js
+// 定义事件侦听器函数
+function displayWindowSize() {
+  // 获取窗口的宽度和高度，不包括滚动条
+  var w = document.documentElement.clientWidth;
+  var h = document.documentElement.clientHeight;
+  // 在div元素中显示结果
+  document.getElementById("result").innerHTML = "宽: " + w + ", " + "高: " + h;
+}
+// 将事件侦听器函数附加到窗口的resize事件
+window.addEventListener("resize", displayWindowSize);
+// 第一次调用该函数
+displayWindowSize();
+```
