@@ -4,12 +4,12 @@
 
 - [参考文档](#参考文档)
 - [环境安装](#环境安装)
-- [Docker 基础命令](#Docker基础命令)
-- [Docker 安装及部署 Mysql](#Docker安装及部署Mysql)
-- [Docker 安装及部署 MQTT](#Docker安装及部署MQTT)
-- [Docker 安装及部署 V2ray](#Docker安装及部署V2ray)
-- [Docker 搭建 WebServer](#Docker搭建WebServer)
-- [Docker 搭建 APIserver](#Docker搭建APIserver)
+- [Docker-基础命令](#Docker-基础命令)
+- [Docker-安装及部署-Mysql](#Docker-安装及部署-Mysql)
+- [Docker-安装及部署-MQTT](#Docker-安装及部署-MQTT)
+- [Docker-安装及部署-V2ray](#Docker-安装及部署-V2ray)
+- [Docker-搭建-WebServer](#Docker-搭建-WebServer)
+- [Docker-搭建-APIserver](#Docker-搭建-APIserver)
 
 - [Docker 实际使用中的注意事项及问题](#Docker实际使用中的注意事项及问题)
 
@@ -35,7 +35,7 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 ```
 
-## Docker 基础命令
+## Docker-基础命令
 
 - [点击我查看命令详细内容](https://www.runoob.com/docker/docker-run-command.html)
 
@@ -83,7 +83,7 @@ docker run -d
 
 ```
 
-## Docker 安装及部署 Mysql
+## Docker-安装及部署-Mysql
 
 ```bash
 # docker 中下载 mysql
@@ -111,7 +111,7 @@ docker restart xxxx(Docker id)
 
 ```
 
-## Docker 安装 MQTT
+## Docker-安装-MQTT
 
 > 拉取 MQTT
 
@@ -220,17 +220,17 @@ docker restart xxxx(Docker Id)
     sudo chmod -R 777 mosquitto/log
   ```
 
-## Docker 部署 V2ray
+## Docker-部署-V2ray
 
 - 解压 file 文件，执行 gogogo.sh 脚本
 
   备注：注意修改 gogogo.sh 里面的路径 (你服务器路径)
 
-## Docker 搭建 WebServer
+## Docker-搭建-WebServer
 
-## Docker 搭建 APIserver
+## Docker-搭建-APIserver
 
-## Docker 实际使用中的注意事项及问题
+## Docker-实际使用中的注意事项及问题
 
 > docker stat/bin/bash:没有这样的文件或目录
 
@@ -288,3 +288,19 @@ systemctl enable networking ;systemctl disable NetworkManager
 ```bash
  kill `pgrep -o dhclient` ;systemctl stop NetworkManager ;systemctl start networking
 ```
+
+/etc/nginx/conf.d/default.conf
+
+/// 104
+写入内网服务器的端口号为： 7002
+写入内网服务器的 uuid 为：20edad52-0695-4ed5-ba72-578db9390f6a
+
+外网终端上使用的端口号为： 7001w
+外网终端上使用的 uuid 为： 0609dc86-67d4-44be-8935-4a127af29785
+
+//--- 树莓派
+写入内网服务器的端口号为： 7002
+写入内网服务器的 uuid 为：77fd8036-3908-4252-8b08-1d35678936dc
+
+外网终端上使用的端口号为： 7001
+外网终端上使用的 uuid 为： 3cdf6299-aa52-4b61-93d4-539e5b7ea1f0
