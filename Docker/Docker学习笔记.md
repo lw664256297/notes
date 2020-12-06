@@ -10,6 +10,7 @@
 - [Docker-安装及部署-V2ray](#Docker-安装及部署-V2ray)
 - [Docker-搭建-WebServer](#Docker-搭建-WebServer)
 - [Docker-搭建-APIserver](#Docker-搭建-APIserver)
+- [Docker-搭建及部署-frps-内网穿透](#Docker-搭建及部署-frps-内网穿透)
 
 - [Docker 实际使用中的注意事项及问题](#Docker实际使用中的注意事项及问题)
 
@@ -111,7 +112,7 @@ docker restart xxxx(Docker id)
 
 ```
 
-## Docker-安装-MQTT
+## Docker-安装及部署-MQTT
 
 > 拉取 MQTT
 
@@ -230,6 +231,85 @@ docker restart xxxx(Docker Id)
 
 ## Docker-搭建-APIserver
 
+## Docker-搭建及部署-frps-内网穿透
+
+> 需要的东西
+
+- vps 服务器
+- Linux
+
+> docker 安装 frp
+
+```bash
+docker pull stilleshan/frps:latest
+```
+
+> 配置服务端的外挂文件 frps.ini
+
+```ini
+# 配置文件
+[common]
+# 客户端和服务端通信的端口
+bind_port = 7000
+
+# 仪表盘 rfps
+dashboard_port = 7500
+dashboard_user = zhangds
+dashboard_pwd = zhangds123
+
+# token值
+token = zhangdszhudac
+
+# http 端口
+vhost_http_port = 80
+```
+
+> 运行 docker 命令-把 docker 的端口暴露出去
+
+```bash
+docker run -d --name=frps --restart=always \
+ -v /root/frps/frps.ini:/frp/frps.ini \
+ -p 7000:7000 \
+ -p 7500:7500 \
+ -p 80:80 \
+ -p 3000:3000/tcp \
+stilleshan/frps
+```
+
+> 配置客户端的外挂文件 frpc.ini----这里使用的不是 docker！！！！！
+
+```ini
+[common]
+server_addr = 104.xxxx
+server_port = 7000
+
+token = zhangdszhudac
+
+[ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 3000
+
+[range:test_tcp]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 8080
+remote_port = 8080
+
+[web]
+type = http
+local_ip = 127.0.0.1
+local_port = 3000
+custom_domains = 104.xxxxx
+```
+
+> 客户端运行---这里使用的不是 docker！！！！！
+
+```bash
+./frpc
+```
+
 ## Docker-实际使用中的注意事项及问题
 
 > docker stat/bin/bash:没有这样的文件或目录
@@ -288,19 +368,3 @@ systemctl enable networking ;systemctl disable NetworkManager
 ```bash
  kill `pgrep -o dhclient` ;systemctl stop NetworkManager ;systemctl start networking
 ```
-
-/etc/nginx/conf.d/default.conf
-
-/// 104
-写入内网服务器的端口号为： 7002
-写入内网服务器的 uuid 为：20edad52-0695-4ed5-ba72-578db9390f6a
-
-外网终端上使用的端口号为： 7001w
-外网终端上使用的 uuid 为： 0609dc86-67d4-44be-8935-4a127af29785
-
-//--- 树莓派
-写入内网服务器的端口号为： 7002
-写入内网服务器的 uuid 为：77fd8036-3908-4252-8b08-1d35678936dc
-
-外网终端上使用的端口号为： 7001
-外网终端上使用的 uuid 为： 3cdf6299-aa52-4b61-93d4-539e5b7ea1f0
