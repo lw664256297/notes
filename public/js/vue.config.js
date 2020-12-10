@@ -39,6 +39,7 @@ module.exports = {
   publicPath: "./",
   // 去除map文件
   productionSourceMap: false,
+  lintOnSave:false,
   configureWebpack: config => {
     // 用cdn方式引入，则构建时要忽略相关资源
     if (isProduction || devNeedCdn) config.externals = cdn.externals
