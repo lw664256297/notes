@@ -38,6 +38,8 @@ brew install go
 
 ```bash
 sudo apt-get install golang
+# 或
+yum install golang
 ```
 
 ## 关键字

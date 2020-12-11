@@ -10,9 +10,9 @@
 ## go.mod-的生成
 
 ```bash
-export GO111MODULE=on
-
-go mod init
+export GO111MODULE=on /
+export GOPROXY=https://goproxy.io /
+go mod init/
 ```
 
 ## 设置-golang-下载代理
