@@ -6,8 +6,9 @@
 - [关键字](#关键字)
 - [变量](#变量-var-const)
 - [算术运算](#算术运算)
+- [Go-指针](#Go-指针)
+- [new-和-make](#new-和-make)
 - [Go-函数](#Go-函数)
-- [Go 指针](#Go指针)
 - [Array 数组](#Array数组)
 - [Slice 切片](#Slice切片)
 - [Struct](#Struct构造体)
@@ -85,9 +86,8 @@ func main()  {
 
 > 常量 const
 
-    常量不能改变,必须初始化
-
 ```go
+// 常量不能改变,必须初始化
 const name = "张德帅"
 ```
 
@@ -99,9 +99,93 @@ const name = "张德帅"
 
 ![运算符](../public/img/Jietu20200822-152802.jpg)
 
+## Go-指针
+
+> 定义
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	//指针取值
+	a := 10
+	b := &a // 取变量a的地址，将指针保存到b中
+	fmt.Printf("type of b:%T\n", b)
+	c := *b // 指针取值（根据指针去内存取值）
+	fmt.Printf("type of c:%T\n", c)
+	fmt.Printf("value of c:%v\n", c)
+}
+
+```
+
+## new-和-make
+
+- make 只用于 slice、map 以及 channel 的初始化，返回的还是这三个引用类型本身；
+- new 用于类型的内存分配，并且内存对应的值为类型零值，返回的是指向类型的指针。
+
+> 使用
+
+```go
+package Makenew
+
+import "fmt"
+
+func init() {
+	// 定义一个变量-但是没有初始化(内存还没有分配， 所以不能赋值)
+	var b map[string]int
+	b = make(map[string]int, 10)
+	b["name"] = 100
+	fmt.Printf("%v \n", b)
+}
+```
+
 ## Go-函数
 
-## Go 指针
+> 定义
+
+        func 函数名(参数)(返回值){
+            函数体
+        }
+
+```go
+package Func
+
+import "fmt"
+
+func init() {
+	// -------------------------------匿名函数--------
+	// 将匿名函数保存到变量
+	add := func(x, y int) {
+		fmt.Println(x + y)
+	}
+	add(100, 10) // 通过变量调用匿名函数
+
+	// 自执行函数: 匿名函数定义完成()直接执行
+	func(x, y int) {
+		fmt.Println(x + y)
+	}(10, 20)
+}
+
+// SayHi 普通函数
+func SayHi() {
+	fmt.Println("hello")
+}
+
+// Resdata 有返回函数
+func Resdata() int {
+	return 10
+}
+
+// Parmdata参数函数
+func Parmdata(name string, age int) {
+	fmt.Printf("name:%v, age:%v \n", name, age)
+}
+
+```
 
 ## Array 数组
 
@@ -120,3 +204,7 @@ const name = "张德帅"
 ## Go 基础命令
 
 ## Go 实际使用中的注意事项及问题
+
+```
+
+```
