@@ -30,7 +30,7 @@
 
         led + 电阻 + esp8266
 
-![硬件连线](../public/img/mqtt/pic05.jpeg)
+![硬件连线](../../public/img/mqtt/pic05.jpeg)
 
 > 3.上传 demo（示列） 程序--不是新手可以忽略
 
@@ -56,10 +56,10 @@ void loop() {
 
 - 进入网站 http://firmatabuilder.com/
 
-![firmata](../public/img/mqtt/pic01.png)
-![firmata](../public/img/mqtt/pic02.png)
-![firmata](../public/img/mqtt/pic03.png)
-![firmata](../public/img/mqtt/pic04.png)
+![firmata](../../public/img/mqtt/pic01.png)
+![firmata](../../public/img/mqtt/pic02.png)
+![firmata](../../public/img/mqtt/pic03.png)
+![firmata](../../public/img/mqtt/pic04.png)
 
 - 解压，使用 Arduino 打开 下载的文件
 - 修改自己的 WIFI 信息

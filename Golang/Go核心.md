@@ -4,8 +4,9 @@
 
 - [安装和搭建-golang-开发环境](#安装和搭建-golang-开发环境)
 - [关键字](#关键字)
-- [变量](#变量)
-- [Go 函数](#Go函数)
+- [变量](#变量-var-const)
+- [算术运算](#算术运算)
+- [Go-函数](#Go-函数)
 - [Go 指针](#Go指针)
 - [Array 数组](#Array数组)
 - [Slice 切片](#Slice切片)
@@ -23,8 +24,6 @@
 
 - [李文周-点击我查看详细文档](https://www.liwenzhou.com/posts/Go/go_menu/)
 - [apiServer-教程](http://47.104.107.180/category/Go)
-
-## GO webServer 实战
 
 ## 安装和搭建-golang-开发环境
 
@@ -56,7 +55,7 @@ yum install golang
 
 - 36 预定义标识符
 
-## 变量 var const
+## 变量-var-const
 
 > 声明规范
 
@@ -92,81 +91,15 @@ func main()  {
 const name = "张德帅"
 ```
 
-## Go 打印控制台 fmt 包
-
-> fmt 输出
-
-```go
-package main
-
-import "fmt"
-func main()  {
-	// fmt 输出类型
-	name := "张德帅"
-	fmt.Println(name)
-
-	// 格式化输出
-	/*
-	%s string
-	%d int
-	*/
-	age := 18
-	fmt.Printf("姓名1: %s, 年龄:%d", name, age)
-
-	// 如果不确定变量类型怎么办？
-	fmt.Printf("\n姓名2:%v, 年龄:%v", name, age)
-
-	// 我想按照自己的需要， 将变量格式化之后赋值给另一个变量，如何操作?
-	str := fmt.Sprintf("\n姓名3:%v, 年龄:%v", name, age)
-	fmt.Println(str)
-}
-```
-
-> fmt 输入
-
-```go
-	// fmt输入
-	var name1 string
-	fmt.Println("请输入姓名:")
-	fmt.Scan(&name1)
-	fmt.Println("你输入的姓名是:" + name1)
-
-	// 格式化输入
-	var age1 int
-	fmt.Scanf("%d", &age1)
-	fmt.Println("你输入的年龄是:", age1)
-```
-
-## 枚举 iota
-
-```go
-package main
-
-import "fmt"
-
-func main()  {
-	const (
-		left = iota // 0
-		right = iota // 1
-		above = iota // 2
-		below   //
-		front, back = iota, iota // 4  不换行，不增加
-	)
-
-	// 输出 0 1 2 3 4 4
-	fmt.Println(left, right, above, below, front, back)
-}
-```
-
 ## 算术运算
 
     类型转换, 注意：
     int 转 float 强制转换， 多小数
     float 转int 强制转换， 丢精度
 
-![运算符]("./public/img/Jietu20200822-152802.jpg")
+![运算符](../public/img/Jietu20200822-152802.jpg)
 
-## Go 函数
+## Go-函数
 
 ## Go 指针
 
