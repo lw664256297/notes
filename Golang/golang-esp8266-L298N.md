@@ -4,6 +4,8 @@
 
 > analogWriteRange(255);
 
+- firmata 在 arduino 上面设置
+
 ```go
 package main
 
