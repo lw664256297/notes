@@ -1,3 +1,9 @@
+# 如果 pwm 值不一样使用 analogWriteRange(255);设置范围
+
+// PWM 范围
+
+> analogWriteRange(255);
+
 ```go
 package main
 
@@ -82,11 +88,11 @@ func main() {
 		maDir1Gpio1.On()
 		maDir2Gpio1.Off()
 
-		gobot.Every(500*time.Millisecond, func() {
-			maSpeed = 254
+		gobot.Every(100*time.Millisecond, func() {
+			maSpeed += 5
 			log.Infof("Setting speed to %v\n", maSpeed)
-			maSpeedGpio.DigitalWrite(maSpeed)
-			maSpeedGpio1.DigitalWrite(maSpeed)
+			maSpeedGpio.PwmWrite(maSpeed)
+			maSpeedGpio1.PwmWrite(maSpeed)
 
 		})
 	}
