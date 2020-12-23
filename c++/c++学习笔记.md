@@ -9,6 +9,7 @@
 - [new-和-delete-操作符]#(#new-和-delete-操作符)
 - [函数](#函数)
 - [c++类和对象](#c++类和对象)
+- [c++流程控制](#c++流程控制)
 
 ## 安装编译器
 
@@ -184,6 +185,82 @@ int main()
     bdata->say();
     delete bdata; // 一定要删除-释放内存
 
+}
+
+```
+
+## c++流程控制
+
+> switch
+
+```c++
+// 语法
+// expression 必须是一个整型或枚举类型，或者是一个 class 类型
+// constant-expression 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量或字面量
+switch(expression){
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+
+    // 您可以有任意数量的 case 语句
+    default : // 可选的
+       statement(s);
+}
+```
+
+```c++
+#include <iostream>
+using namespace std;
+
+inline void name(int type)
+{
+    switch (type)
+    {
+    case 1:
+
+        cout << "-----1" << endl;
+        break;
+    case 2:
+
+        cout << "-----2" << endl;
+        break;
+
+    default:
+        break;
+    }
+}
+
+inline void age(char type)
+{
+    switch (type)
+    {
+    case 'a':
+        cout << "-----a" << endl;
+        break;
+    case 'b':
+        cout << "-----b" << endl;
+        break;
+    case 'c':
+        cout << "-----c" << endl;
+        break;
+    default:
+        break;
+    }
+}
+
+int main()
+{
+    int type;
+    char nameshd;
+
+    cin >> type;
+    name(type);
+
+    cin >> nameshd;
+    age(nameshd);
 }
 
 ```
