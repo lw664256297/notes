@@ -11,7 +11,7 @@
 - [Docker-搭建-WebServer](#Docker-搭建-WebServer)
 - [Docker-搭建-APIserver](#Docker-搭建-APIserver)
 - [Docker-搭建及部署-frps-内网穿透](#Docker-搭建及部署-frps-内网穿透)
-
+- [Docker-查看你挂载的文件](#Docker-查看你挂载的文件)
 - [Docker 实际使用中的注意事项及问题](#Docker实际使用中的注意事项及问题)
 
 ## 参考文档
@@ -308,6 +308,12 @@ custom_domains = 104.xxxxx
 
 ```bash
 ./frpc
+```
+
+## Docker-查看你挂载的文件
+
+```bash
+  docker inspect xxx | grep Mounts -A 10
 ```
 
 ## Docker-实际使用中的注意事项及问题
