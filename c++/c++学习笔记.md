@@ -8,6 +8,7 @@
 - [c++输入输出库](#c++输入输出库)
 - [new-和-delete-操作符]#(#new-和-delete-操作符)
 - [函数](#函数)
+- [c++类和对象](#c++类和对象)
 
 ## 安装编译器
 
@@ -139,4 +140,50 @@ int main()
 
     return 0;
 }
+```
+
+## c++类和对象
+
+> 通过对象名字访问成员使用点号.，通过对象指针访问成员使用箭头->，这和结构体非常类似。
+
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+// 声明类
+class AData
+{
+public:
+    string name;
+    int age;
+    string sex;
+    void say()
+    {
+        cout << "我叫:" << name << "今年:" << age << "岁"
+             << "性别:" << sex << endl;
+    }
+};
+
+int main()
+{
+
+     // 创建对象
+    // AData adata;
+    // adata.name = "张德帅";
+    // adata.age = 18;
+    // adata.sex = "男";
+    // adata.say();
+    // delete adata; // 一定要删除-释放内存
+
+    // 使用对象指针
+    AData *bdata = new AData;
+    bdata->name = "张德帅";
+    bdata->age = 18;
+    bdata->sex = "男";
+    bdata->say();
+    delete bdata; // 一定要删除-释放内存
+
+}
+
 ```
