@@ -8,9 +8,6 @@
 
 ## 环境安装
 
-https://blog.csdn.net/fhqlongteng/article/details/80433633
-https://shumeipai.nxez.com/2017/05/14/raspberry-pi-mjpg-streamer-installation.html
-
 ## 第一个程序
 
 ## 变量
