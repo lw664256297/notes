@@ -18,6 +18,8 @@ mv xxxdir(要移动的目录) xxxdir(目标目录)
 
 > linux 更换国内源
 
+sudo vim /etc/apt/sources.list
+
 ```bash
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
 
