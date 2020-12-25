@@ -348,6 +348,7 @@ this.$router.push({ path: "/home/first" });
 
 // 命名的路由
 this.$router.push({ name: "home", params: { userId: wise } });
+this.$router.push({ name: "home", query: { userId: wise } });
 
 // 获取
 let id = this.$route.query.id;
