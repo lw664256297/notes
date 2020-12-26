@@ -26,6 +26,22 @@ raspistill -v -o test.jpg
 
 ## 安装软件
 
+```bash
+sudo apt-get update
+sudo apt-get install subversion
+sudo apt-get install libjpeg8-dev
+sudo apt-get install imagemagick
+sudo apt-get install libv4l-dev
+sudo apt-get install cmake
+sudo apt-get install git
+
+
+sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer/mjpg-streamer-experimental
+make all
+sudo make install
+```
+
 ## 开启服务
 
 ```bash
