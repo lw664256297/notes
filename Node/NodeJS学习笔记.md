@@ -3,6 +3,16 @@
 - [Node-升级](#Node-升级)
 - [NodeJs-实际使用中的注意事项及问题](#NodeJs-实际使用中的注意事项及问题)
 
+## Rasbperry 安装 nodeJs
+
+```bash
+$ curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+$ sudo apt install nodejs
+
+# 安装npm
+sudo apt-get install npm
+```
+
 ## Node-升级
 
 > 产看 node 版本，没安装的请先安装；

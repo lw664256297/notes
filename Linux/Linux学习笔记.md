@@ -78,3 +78,9 @@ vim /Users/xxx/.zshrc
 # 增加命令
 source /Users/xxx/.bash_profile
 ```
+
+## 新一代编辑器 micro
+
+```bash
+curl https://getmic.ro | bash
+```
