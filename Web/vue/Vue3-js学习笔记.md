@@ -11,6 +11,7 @@
 - [ref-获取元素及子组件](#ref-获取元素及子组件)
 - [watch](#watch)
 - [vue3-组件通信](#vue3-组件通信)
+- [v-slot-插槽](#v-slot-插槽)
 - [reactive-ref-区别](#reactive-ref-区别)
 
 ## 前言
@@ -500,6 +501,47 @@
 </script>
 
 <style lang="scss" scoped></style>
+```
+
+### v-slot-插槽
+
+```html
+<!-- 子组件 -->
+<template>
+  <div class="HeadNav-main">
+   <!-- 默认插槽 -->
+    <slot>
+      <!-- slot内为后备内容 -->
+      <h3>没传内容</h3>
+    </slot>
+
+    <!--具名插槽-->
+    <slot name="header"> </slot>
+
+    <!--作用域插槽-->
+    <slot name="footer"> </slot>
+  </div>
+</template>
+
+<!-- 父组件 -->
+<template>
+  <child>
+   <!--默认插槽-->
+   <template v-slot>
+     <div>默认插槽</div>
+   </template>
+   <!--具名插槽-->
+   <template #header>
+     <div>具名插槽</div>
+   </template>
+   <!--作用域插槽-->
+   <template #footer="slotProps">
+     <div>
+      {{slotProps.testProps}}
+     </div>
+   </template>
+  <child>
+</template>
 ```
 
 ### reactive-ref-区别

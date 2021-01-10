@@ -88,6 +88,34 @@ git merge name(分支)
 
 # 设置本地分支为线上分支
 git branch --set-upstream-to=origin/hotfix hotfix
+
+# 查看远程分支地址
+git remote -v
+```
+
+## 关联远程分支
+
+```bash
+# 1、Git init （在本地工程目录下），生成.git 文件夹
+Git init
+
+# 2、上传修改的文件
+git add *
+
+# 3、(*可替换成具体要上传的文件名，*表示提交所有有变化的文件) 3、添加上传文件的描述
+git commit -m "test"
+
+# 4、（创建分支）
+git branch test
+
+# 5、（切换分支）
+git checkout test
+
+# 6、与远程分支相关联
+git remote add origin https://github.com/yangxiaoyan20/BowlingScore.git
+
+# 7、（将分支上传）
+git push origin test
 ```
 
 ## vscode 报错
@@ -99,3 +127,19 @@ git branch --set-upstream-to=origin/hotfix hotfix
 正如错误消息所 git rebase --continue 提示的那样，您要求 git 应用一个补丁，导致补丁为空。最有可能的是，这意味着该补丁已被应用，您想使用来删除它 git rebase --skip。
 
 sudo docker run -it --name=mosquitto --privileged -p 1883:1883 -p 9001:9001 -v /root/mqtt/mosquitto/config:/mosquitto/config/ -v /root/mqtt/mosquitto/data:/mosquitto/data -v /root/mqtt/mosquitto/log:/mosquitto/log -d eclipse-mosquitto
+
+## 分支操作
+
+echo "# vue3-demo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/lw664256297/vue3-demo.git
+git push -u origin main
+
+## 合并线上分支
+
+git remote add origin https://github.com/lw664256297/vue3-demo.git
+git branch -M main
+git push -u origin main
