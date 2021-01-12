@@ -141,6 +141,8 @@ touch mosquitto.conf
 
 内容如下:
 
+注意！！！！！！：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
+
         persistence true
         persistence_location /mosquitto/data
         log_dest file /mosquitto/log/mosquitto.log
@@ -154,8 +156,6 @@ touch mosquitto.conf
 
         # 指定密码文件
         password_file /mosquitto/config/pwfile.conf
-
-        #备注：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
 
 > 创建用户名及密码文件
 
