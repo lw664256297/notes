@@ -264,3 +264,38 @@ int main()
 }
 
 ```
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+constexpr int U(const char* str)
+{
+ return str[0] + (str[1] ? U(str + 1) : 0);
+}
+
+int main()
+{
+
+ const char* str = "";
+
+ switch (U(str))
+ {
+ case U("是否多个"):
+  cout << "是否多个"<<endl;
+  break;
+ case U("456"):
+  cout << "456" << endl;
+  break;
+ case U("789"):
+  cout << "789" << endl;
+  break;
+ default:
+  cout << "默认" << endl;
+  break;
+ }
+
+ return 0;
+}
+```

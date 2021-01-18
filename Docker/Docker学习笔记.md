@@ -82,6 +82,9 @@ docker run -d
 
 # 其中 -v /home/es_config/plugin:/usr/share/elasticsearch/plugin 冒号:前面是宿主机的文件夹地址，冒号:后面是docker容器中的文件夹地址。
 
+# 查看docker 挂载的文件
+docker inspect xxx | grep Mounts -A 10
+
 ```
 
 ## Docker-安装及部署-Mysql
