@@ -13,7 +13,7 @@
 - [vue3-组件通信](#vue3-组件通信)
 - [v-slot-插槽](#v-slot-插槽)
 - [reactive-ref-区别](#reactive-ref-区别)
-
+- [reactive-ref-取值](#reactive-ref-取值)
 ## 前言
 
 > 优秀的教程
@@ -545,3 +545,18 @@
 ```
 
 ### reactive-ref-区别
+
+
+### reactive-ref-取值proxy 
+
+```JS
+const state = reactive({
+  name:"asd",
+  formDataInput:{
+    name:"asd",
+    age:12
+  }
+})
+const parm = Object.assign({}, state.formDataInput);
+const a1 = { ...state.formDataInput };
+```
