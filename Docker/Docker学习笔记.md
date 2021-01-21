@@ -99,6 +99,9 @@ docker pull hypriot/rpi-mysql
 #启动
 docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123!a -d mysql
 
+#树莓派启动
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123!a -d hypriot/rpi-mysql
+
 #进入容器
 docker exec -it mysql bash
 
