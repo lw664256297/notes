@@ -126,6 +126,8 @@ module.exports = {
 
 ```bash
 npm run watch
+
+npm run lint -- --fix 
 ```
 
 ## wepack4-实际使用中的注意事项及问题
