@@ -9,7 +9,7 @@
 # scp
 
 ```bash
-# 上传
+# 上传 ---注意在windw下的 \ 路径
 scp D:\web\notes\file\mqttstart.sh pi@192.168.5.72:/home/pi
 
 # 下载
