@@ -1,24 +1,32 @@
 # Linux 学习笔记
 
-> mac 制作 u 盘启动盘
+## 目录
+
+- [Linux系统分为两种](#Linux系统分为两种)
+- [linux更换国内源](#linux更换国内源)
+- [linux全局变量](#linux全局变量)
+- [linux查看系统活动监视器](#linux查看系统活动监视器)
+- [mac制作u盘启动盘](#mac制作u盘启动盘)
+- [新一代编辑器micro](#新一代编辑器micro)
+- [CentOS](#CentOS)
+- [Ubuntu](#Ubuntu)
+
+
+## Linux系统分为两种
+
+- RedHat系列：Redhat、Centos、Fedora等
+
+        RedHat系列的包管理工具是yum
+
+- Debian系列：Debian、Ubuntu等
+
+        Debian系列的包管理工具是apt-get
+
+## linux更换国内源
 
 ```bash
-# 制作系统.img
-hdiutil convert -format UDRW -o /Users/bigbird/linux/ubuntu-20.04-desktop-amd64.img /Users/bigbird/linux/ubuntu-20.04-desktop-amd64.iso
-
-# 烧录系统到u盘
-sudo dd if=/Users/bigbird/linux/ubuntu-20.04-desktop-amd64.img.dmg of=/dev/rdisk3 bs=1m
-```
-
-> linux 移动文件命令
-
-```bash
-mv xxxdir(要移动的目录) xxxdir(目标目录)
-```
-
-> linux 更换国内源
-
 sudo vim /etc/apt/sources.list
+```
 
 ```bash
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
@@ -40,47 +48,75 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restr
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 
 deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiversew
+```
+
+## linux全局变量
+
+> PATH确认方法
+```bash
+echo $PATH
+```
+
+根据优先级先后顺序用：分割，因此可以复数指定
+
+> PATH设定方法(临时)
+
+```bash
+export PATH=$PATH:/usr/local/scala/bin
+```
+
+> PATH设定方法(永久)
+
+```bash
+vim /etc/profile
+# 假设php命令目录在 ： /usr/local/php/bin 目录中，那么命令就是
+export PATH=/usr/local/bin:$PATH
+```
+
+> ps:这个文件是login的时候才生效的，因此需要马上生效的情况，请执行以下命令
+```bash
+source /etc/profile
+# 或者
+source .bash_profile
 
 ```
 
-> linux 配置多个 环境变量
+> 全局多个变量使用 : 隔开
 
 ```bash
-# python3
-export PYTHON3="/Library/Frameworks/Python.framework/Versions/3.6/bin"
-# android-sdk
-export ANDROID_HOME_TOOLS=/usr/local/opt/android-sdk/tools
-export ANDROID_HOME_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
-
 # go
 export GOROOT="/usr/local/Cellar/go/1.13.4/libexec"
 export GOPATH=/Users/bigbird/goCode
 export GOBIN=$GOPATH/bin
-
-export PATH=$PYTHON3:$ANDROID_HOME_TOOLS:$ANDROID_HOME_PLATFORM_TOOLS:$GOROOT:$GOPATH:$GOBIN:$PATH
-
+export PATH=$GOROOT:$GOPATH:$GOBIN:$PATH
 ```
 
-> linux 查看系统活动监视器
+## linux查看系统活动监视器
 
 ```bash
 gnome-system-monitor
 ```
 
-> 使用 mac 的 Iterm2
-
-        使用 Iterm2 的时候，发现.bash_profile 修改完后，没有生效,每次都必须 source 后才生效
-        1.解决办法,修改文件
-
-```bash
-# 打开文件
-vim /Users/xxx/.zshrc
-# 增加命令
-source /Users/xxx/.bash_profile
-```
-
-## 新一代编辑器 micro
+## 新一代编辑器micro
 
 ```bash
 curl https://getmic.ro | bash
+
+# 缺少 Install xclip/xsel on CentOS / RedHat
+curl -L https://git.io/XClipYum | sh
+curl -L https://git.io/XSelYum | sh
 ```
+
+## mac制作u盘启动盘
+
+```bash
+# 制作系统.img
+hdiutil convert -format UDRW -o /Users/bigbird/linux/ubuntu-20.04-desktop-amd64.img /Users/bigbird/linux/ubuntu-20.04-desktop-amd64.iso
+
+# 烧录系统到u盘
+sudo dd if=/Users/bigbird/linux/ubuntu-20.04-desktop-amd64.img.dmg of=/dev/rdisk3 bs=1m
+```
+
+## CentOS
+## Ubuntu
+
