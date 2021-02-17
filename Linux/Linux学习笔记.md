@@ -57,20 +57,36 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restr
 echo $PATH
 ```
 
+> 方式一：/etc/profile 配置
+
+```bash
+
+vim /etc/profile
+ 
+#最后添加下面内容
+export JAVA_HOME=/usr/local/jdk/jdk1.8
+export PATH=.:$JAVA_HOME/bin:$PATH
+
+```
+
+> 方式二：/etc/profile.d 配置
+
+```bash
+vim /etc/profile.d/java.sh
+ 
+#java jdk1.8 env
+export JAVA_HOME=/usr/local/jdk/jdk1.8
+
+```
+
+
+
 根据优先级先后顺序用：分割，因此可以复数指定
 
 > PATH设定方法(临时)
 
 ```bash
 export PATH=$PATH:/usr/local/scala/bin
-```
-
-> PATH设定方法(永久)
-
-```bash
-vim /etc/profile
-# 假设php命令目录在 ： /usr/local/php/bin 目录中，那么命令就是
-export PATH=/usr/local/bin:$PATH
 ```
 
 > ps:这个文件是login的时候才生效的，因此需要马上生效的情况，请执行以下命令
