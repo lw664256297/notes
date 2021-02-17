@@ -273,7 +273,6 @@
 <!-- 父组件 -->
 <template>
   <div class="app">
-    <!-- ！！！！！！！！！注意ref 必须是驼峰！！！！！ -->
     <test ref="comRef"></test>
     <button @click="clickClid001">获取子组成数据</button>
     <button @click="clickClid002">调用子组件方法</button>
@@ -301,6 +300,7 @@
       const clickClid002 = () => {
         comRef.value.refsgh();
       };
+      // comRef 必须在return 抛出
       return { comRef, clickClid001, clickClid002 };
     },
   };
@@ -325,7 +325,7 @@
     setup() {
       const nameref = ref("朱大常");
       watch(nameref, (newValue, oldValue) => {
-        // 输出 前端有的玩 子君
+        // 输出 
         console.log(newValue, oldValue);
       });
 
