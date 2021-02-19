@@ -289,8 +289,8 @@
       test,
     },
     setup() {
-      // 1. 创建一个组件的 ref 引用
-      const comRef = ref(null);
+      // 1. 创建一个组件的 ref 引用    一定要 return ⚠️！！！！！！！！！！！！！！ 
+      const comRef = ref(null); 
 
       // 2. 获取子组成的值
       const clickClid001 = () => {
