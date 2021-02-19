@@ -1,13 +1,22 @@
 # Shell 脚本学习笔记
 
-## 常用命令
+# 常用命令
 
 - [点击我查看详细命令教程](https://www.runoob.com/linux/linux-command-manual.html)
 
+## 目录
+
+- [scp](#scp)
+- [passwd修改密码](#passwd修改密码)
+- [ip](#ip)
+- [tar](#tar)
+- [du查看文件的大小](#du查看文件的大小)
+- [ls查看权限](#ls查看权限)
+- [cp拷贝文件](#cp拷贝文件)
+- [mv移动文件](#mv移动文件)
+
+## scp
 > scp 上传服务器 或者 下载内容到本地
-
-# scp
-
 ```bash
 # 上传 ---注意在windw下的 \ 路径
 scp D:\web\notes\file\mqttstart.sh pi@192.168.5.72:/home/pi
@@ -17,54 +26,22 @@ scp -P 29130 root@xxx.xxx.xxx:/root/api-demo/apiserver.zip /Users/bigbird/Down10
 #
 ```
 
-# 查看 ip 地址
+## passwd修改密码
 
 ```bash
-ip add
+passwd xxx(用户名)
 ```
+
+## ip
+
+```bash
+#查看ip地址
+ip add
 
 # 查看 ip 和端口是否接通
-
-```bash
 telnet 104.128.89.101 9001
-```
 
-# tar-压缩文件
-
-```bash
-# 打包压缩
-tar -zcvf /home/xahot.tar.gz /xahot
-tar -zcvf 打包后生成的文件名全路径 要打包的目录
-例子：把/xahot文件夹打包后生成一个/home/xahot.tar.gz的文件。
-
-
-# 解包：
-tar xvf FileName.tar
-# 打包：
-tar cvf FileName.tar DirName
-```
-
-# 查看文件的大小
-
-```bash
-du -h xxx
-```
-
-# 查看权限
-
-```bash
-ls -ls
-```
-
-# 拷贝文件
-
-```bash
-cp -r /opt/a/ /opt/b/ #将/opt/a/下的a.录复制到 /opt/b/目录
-```
-
-# 查询同一个网段下，所有的 ip
-
-```bash
+#查询同一个网段下，所有的 ip
 #!/bin/bash
 star=`date +%s`
 echo "*********Running...**********"
@@ -79,4 +56,44 @@ wait
 end=`date +%s`
 echo $end
 echo "*************Spent Time:`expr $end - $star `**************"
+
 ```
+
+# tar 
+
+```bash
+# 压缩
+tar -zcvf /home/xahot.tar.gz /xahot
+tar -zcvf 打包后生成的文件名全路径 要打包的目录
+例子：把/xahot文件夹打包后生成一个/home/xahot.tar.gz的文件。
+
+# 解包：
+tar xvf FileName.tar
+# 打包：
+tar cvf FileName.tar DirName
+```
+
+## du查看文件的大小
+
+```bash
+du -h xxx
+```
+
+## ls查看权限
+
+```bash
+ls -ls
+```
+
+## cp拷贝文件
+
+```bash
+cp -r /opt/a/ /opt/b/ #将/opt/a/下的a.录复制到 /opt/b/目录
+```
+
+## mv移动文件
+
+```bash
+mv xxxdir(要移动的目录) xxxdir(目标目录)
+```
+

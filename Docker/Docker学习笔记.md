@@ -36,6 +36,12 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 ```
 
+> Linux 启动docker 
+
+```bash
+systemctl start docker.service
+```
+
 ## Docker-基础命令
 
 - [点击我查看命令详细内容](https://www.runoob.com/docker/docker-run-command.html)
