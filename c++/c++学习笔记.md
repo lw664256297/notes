@@ -4,12 +4,14 @@
 
 - [安装编译器](#安装编译器)
 - [编写第一个-c++程序](#编写第一个-c++程序)
+- [c++数据类型](#c++数据类型)
 - [using-namespace-命令空间](#using-namespace-命令空间)
 - [c++输入输出库](#c++输入输出库)
-- [new-和-delete-操作符]#(#new-和-delete-操作符)
+- [new-和-delete-操作符](#new-和-delete-操作符)
 - [函数](#函数)
 - [c++类和对象](#c++类和对象)
 - [c++流程控制](#c++流程控制)
+
 
 ## 安装编译器
 
@@ -43,6 +45,10 @@ return 0;
 # -o 的意思是编译可执行文件
 g++ main.cpp -o main
 ```
+
+## c++数据类型
+
+!["c++数据类型"](../public/img/c++datatype.png)
 
 ## using-namespace-命令空间
 
