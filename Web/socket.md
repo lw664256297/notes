@@ -153,7 +153,7 @@ wsocket.initWebSocket();
 Vue.prototype.$ws = wsocket;
 ```
 
-## 组件使用
+## vue2.x 组件使用
 
 ```html
 <script>
