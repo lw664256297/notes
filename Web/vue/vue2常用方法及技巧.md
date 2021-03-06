@@ -172,24 +172,24 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    name: "默认名字",
+    name: "默认名字"
   },
   // 格的儿丝
   getters: {
-    name: (state) => state.name,
+    name: (state) => state.name
   },
   // 莫特甚丝
   mutations: {
     setName(state, data) {
       state.name = data;
-    },
+    }
   },
   actions: {
     changeName({ commit }, data) {
       commit("setName", data);
-    },
+    }
   },
-  modules: {},
+  modules: {}
 });
 ```
 
@@ -352,6 +352,9 @@ this.$router.push({ name: "home", query: { userId: wise } });
 
 // 获取
 let id = this.$route.query.id;
+
+// 路由改变title，在需要改变的详情 create 钩子函数使用
+this.$router.currentRoute.meta.title = "编辑API";
 ```
 
 ### 使用-typeScript-ref-报错
@@ -380,9 +383,9 @@ let id = this.$route.query.id;
   export default {
     data() {
       return {
-        aboutImgSrc: imgSrc1,
+        aboutImgSrc: imgSrc1
       };
-    },
+    }
   };
 </script>
 
@@ -394,9 +397,9 @@ let id = this.$route.query.id;
   export default {
     data() {
       return {
-        imgsrc: require("../../images/ICON-electronicbilling.png"),
+        imgsrc: require("../../images/ICON-electronicbilling.png")
       };
-    },
+    }
   };
 </script>
 ```
