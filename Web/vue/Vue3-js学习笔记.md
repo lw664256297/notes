@@ -14,6 +14,7 @@
 - [v-slot-插槽](#v-slot-插槽)
 - [reactive-ref-区别](#reactive-ref-区别)
 - [reactive-ref-取值](#reactive-ref-取值)
+
 ## 前言
 
 > 优秀的教程
@@ -35,11 +36,11 @@
     name: "App",
     setup() {
       const state = reactive({
-        name: "朱大常",
+        name: "朱大常"
       });
 
       return { state };
-    },
+    }
   };
 </script>
 ```
@@ -61,14 +62,14 @@
     setup() {
       // 数据定义
       const state = reactive({
-        name: "朱大常",
+        name: "朱大常"
       });
       // 事件定义
       const login = () => {
         state.name = "朱大常001";
       };
       return { state, login };
-    },
+    }
   };
 </script>
 ```
@@ -91,7 +92,7 @@
       onMounted(() => {
         console.log("组件已挂载");
       });
-    },
+    }
   };
 </script>
 ```
@@ -122,7 +123,7 @@
         name: "朱大常",
         username: "",
         age: 18,
-        setComputed: computed(() => state.age + 2),
+        setComputed: computed(() => state.age + 2)
       });
       // 事件定义
       const login = () => {
@@ -132,7 +133,7 @@
         state.age = 19;
       }, 2000);
       return { state, login };
-    },
+    }
   };
 </script>
 ```
@@ -152,20 +153,21 @@
     props: {
       title: {
         type: String,
-        default: "",
-      },
+        default: ""
+      }
     },
     setup(props) {
       onMounted(() => {
         console.log("----组件加载完成-props值为", props.title);
       });
-    },
+    }
   };
 </script>
 
 <!-- 父组件 -->
 <template>
   <div class="app">
+    <!-- 出现警告信息是 :title和 自己 定义的一样 -->
     <test :title="state.title"></test>
   </div>
 </template>
@@ -176,15 +178,15 @@
   export default {
     name: "App",
     components: {
-      test,
+      test
     },
     setup(props) {
       // 数据定义
       const state = reactive({
-        title: "朱大常",
+        title: "朱大常"
       });
       return { state };
-    },
+    }
   };
 </script>
 ```
@@ -208,7 +210,7 @@
         emit("my-event", "hello");
       };
       return { handleClick };
-    },
+    }
   };
 </script>
 
@@ -225,12 +227,12 @@
   export default {
     name: "App",
     components: {
-      test,
+      test
     },
     setup(props) {
       // 数据定义
       const state = reactive({
-        name: "朱大常",
+        name: "朱大常"
       });
 
       const parentClick = (e) => {
@@ -238,7 +240,7 @@
       };
 
       return { parentClick };
-    },
+    }
   };
 </script>
 ```
@@ -266,7 +268,7 @@
         console.log("-----k");
       };
       return { count, refsgh };
-    },
+    }
   };
 </script>
 
@@ -285,11 +287,11 @@
   export default {
     name: "App",
     components: {
-      test,
+      test
     },
     setup() {
-      // 1. 创建一个组件的 ref 引用    一定要 return ⚠️！！！！！！！！！！！！！！ 
-      const comRef = ref(null); 
+      // 1. 创建一个组件的 ref 引用    一定要 return ⚠️！！！！！！！！！！！！！！
+      const comRef = ref(null);
 
       // 2. 获取子组成的值
       const clickClid001 = () => {
@@ -302,7 +304,7 @@
       };
       // comRef 必须在return 抛出
       return { comRef, clickClid001, clickClid002 };
-    },
+    }
   };
 </script>
 ```
@@ -325,7 +327,7 @@
     setup() {
       const nameref = ref("朱大常");
       watch(nameref, (newValue, oldValue) => {
-        // 输出 
+        // 输出
         console.log(newValue, oldValue);
       });
 
@@ -334,9 +336,9 @@
       };
       return {
         watch001,
-        nameref,
+        nameref
       };
-    },
+    }
   };
 </script>
 ```
@@ -361,8 +363,8 @@
     props: {
       title: {
         type: String,
-        default: "menus",
-      },
+        default: "menus"
+      }
     },
     setup() {
       // 1. 定义响应式的数据
@@ -373,7 +375,7 @@
         console.log("-----k");
       };
       return { count, clidFun };
-    },
+    }
   };
 </script>
 
@@ -392,11 +394,11 @@
   export default {
     name: "App",
     components: {
-      menus,
+      menus
     },
     setup() {
       const state = reactive({
-        title: "张德帅",
+        title: "张德帅"
       });
       // 1. 创建一个组件的 ref 引用
       const menusRef = ref(null);
@@ -412,7 +414,7 @@
       };
 
       return { state, menusRef, clickClid001, clickClid002 };
-    },
+    }
   };
 </script>
 ```
@@ -439,12 +441,12 @@
     props: {
       title: {
         type: String,
-        default: "",
+        default: ""
       },
       appFun: {
         type: Function,
-        default: () => {},
-      },
+        default: () => {}
+      }
     },
     setup(props, { emit }) {
       // 1.props获取父组件数据
@@ -458,7 +460,7 @@
       };
 
       return { getPropsState, getEmitState };
-    },
+    }
   };
 </script>
 
@@ -478,11 +480,11 @@
   export default {
     name: "App",
     components: {
-      test01,
+      test01
     },
     setup() {
       const state = reactive({
-        title: "子组件",
+        title: "子组件"
       });
 
       // props 方法
@@ -496,7 +498,7 @@
       };
 
       return { state, appFun, clidFun };
-    },
+    }
   };
 </script>
 
@@ -546,8 +548,7 @@
 
 ### reactive-ref-区别
 
-
-### reactive-ref-取值proxy 
+### reactive-ref-取值 proxy
 
 ```JS
 const state = reactive({
