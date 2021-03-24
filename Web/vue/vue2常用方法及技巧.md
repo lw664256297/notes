@@ -435,6 +435,7 @@ updateValue(val) {
 ```js
 <div class="qr-share-icon" @click="togglePanel($event)"></div>
 
+// 方法一
 togglePanel(event) {
   this.sharUrl = window.location.href;
   //阻止冒泡
@@ -453,6 +454,9 @@ hide() {
   this.isShowSharQr = false;
   document.removeEventListener("click", this.hidePanel, false);
 },
+
+// 方法二 注意，在ui组件中，组件需提供 @click.stop.native 操作符
+<div class="qr-share-icon" @click.stop="togglePanel()"></div>
 ```
 
 ## Vue-移入移出事件
