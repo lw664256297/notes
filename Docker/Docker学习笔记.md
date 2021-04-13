@@ -36,10 +36,28 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 curl -sSL https://get.daocloud.io/docker | sh
 ```
 
-> Linux 启动docker 
+> Linux 启动 docker
 
 ```bash
 systemctl start docker.service
+```
+
+> Linux 停止 docker
+
+```bahs
+systemctl stop docker
+```
+
+> Linux 查看 docker 启动状态
+
+```bash
+systemctl status docker
+```
+
+> Linux 重启 docker
+
+```bash
+systemctl restart docker
 ```
 
 ## Docker-基础命令
@@ -103,10 +121,10 @@ docker pull mysql
 docker pull hypriot/rpi-mysql
 
 #启动
-docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123!a -d mysql
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123a -d mysql
 
 #树莓派启动
-docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123!a -d hypriot/rpi-mysql
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=zhangds123a -d hypriot/rpi-mysql
 
 #进入容器
 docker exec -it mysql bash
