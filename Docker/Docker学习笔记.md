@@ -134,7 +134,7 @@ mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'zhangds123!a';
 
 #添加远程登录用户
-CREATE USER 'zhangds'@'%' IDENTIFIED WITH mysql_native_password BY 'zhangds123!';
+CREATE USER 'zhangds'@'%' IDENTIFIED WITH mysql_native_password BY 'zhangds123a';
 GRANT ALL PRIVILEGES ON *.* TO 'zhangds'@'%';
 
 # 重启
@@ -173,19 +173,16 @@ touch mosquitto.conf
 
 注意！！！！！！：这里千万注意路径,指向的是 docker 的路径！！!（直接复制我的内容即可）
 
-        persistence true
-        persistence_location /mosquitto/data
-        log_dest file /mosquitto/log/mosquitto.log
-
-        port 1883
-        listener 9001
-        protocol websockets
-
-        # 关闭匿名模式
-        allow_anonymous false
-
-        # 指定密码文件
-        password_file /mosquitto/config/pwfile.conf
+```bash
+persistence true
+persistence_location /mosquitto/data
+log_dest file /mosquitto/log/mosquitto.log
+port 1883
+listener 9001
+protocol websockets
+allow_anonymous false
+password_file /mosquitto/config/pwfile.conf
+```
 
 > 创建用户名及密码文件
 
