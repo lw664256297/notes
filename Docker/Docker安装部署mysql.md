@@ -56,10 +56,18 @@ symbolic-links=0
 
 ### 启动
 
+# mysql --help | grep my.cnf
+
+                      order of preference, my.cnf, $MYSQL_TCP_PORT,
+
+/etc/my.cnf /etc/mysql/my.cnf ~/.my.cnf
+
 ```bash
  docker run --name mysql  --privileged=true   \
 -p 33077:33077   \
--v /mysqlConfig/conf/my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf   \
--v /mysqlConfig/data:/var/lib/mysql   \
--e  MYSQL_ROOT_PASSWORD="zhangds123a" -d mysql
+-v /root/mySqlConfig/conf/my.cnf:/var/mysql/mysql.conf.d/mysqld.cnf   \
+-v /root/mySqlConfig/data:/var/lib/mysql   \
+-e  MYSQL_ROOT_PASSWORD="zhangds123a" -d mysql:latest
 ```
+
+docker run --name mysql_DB --privileged=true -p 33077:33077 -v /root/mySqlConfig/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf -v /root/mySqlConfig/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="zhangds123a" -d mysql:latest
