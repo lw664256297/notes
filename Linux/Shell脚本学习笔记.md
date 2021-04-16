@@ -7,16 +7,18 @@
 ## 目录
 
 - [scp](#scp)
-- [passwd修改密码](#passwd修改密码)
+- [passwd 修改密码](#passwd修改密码)
 - [ip](#ip)
 - [tar](#tar)
-- [du查看文件的大小](#du查看文件的大小)
-- [ls查看权限](#ls查看权限)
-- [cp拷贝文件](#cp拷贝文件)
-- [mv移动文件](#mv移动文件)
+- [du 查看文件的大小](#du查看文件的大小)
+- [ls 查看权限](#ls查看权限)
+- [cp 拷贝文件](#cp拷贝文件)
+- [mv 移动文件](#mv移动文件)
 
 ## scp
+
 > scp 上传服务器 或者 下载内容到本地
+
 ```bash
 # 上传 ---注意在windw下的 \ 路径
 scp D:\web\notes\file\mqttstart.sh pi@192.168.5.72:/home/pi
@@ -26,7 +28,7 @@ scp -P 29130 root@xxx.xxx.xxx:/root/api-demo/apiserver.zip /Users/bigbird/Down10
 #
 ```
 
-## passwd修改密码
+## passwd 修改密码
 
 ```bash
 passwd xxx(用户名)
@@ -59,7 +61,7 @@ echo "*************Spent Time:`expr $end - $star `**************"
 
 ```
 
-# tar 
+# tar
 
 ```bash
 # 压缩
@@ -73,27 +75,26 @@ tar xvf FileName.tar
 tar cvf FileName.tar DirName
 ```
 
-## du查看文件的大小
+## du 查看文件的大小
 
 ```bash
 du -h xxx
 ```
 
-## ls查看权限
+## ls 查看权限
 
 ```bash
 ls -ls
 ```
 
-## cp拷贝文件
+## cp 拷贝文件
 
 ```bash
 cp -r /opt/a/ /opt/b/ #将/opt/a/下的a.录复制到 /opt/b/目录
 ```
 
-## mv移动文件
+## mv 移动文件
 
 ```bash
 mv xxxdir(要移动的目录) xxxdir(目标目录)
 ```
-
