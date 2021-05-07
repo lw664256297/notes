@@ -116,6 +116,27 @@ git remote add origin https://github.com/yangxiaoyan20/BowlingScore.git
 
 # 7、（将分支上传）
 git push origin test
+
+简易的命令行入门教程:
+Git 全局设置:
+
+git config --global user.name "zhudachang"
+git config --global user.email "c664256297@163.com"
+创建 git 仓库:
+
+mkdir test
+cd test
+git init
+touch README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin git@gitee.com:zhudachangs/test.git
+git push -u origin master
+已有仓库?
+
+cd existing_git_repo
+git remote add origin git@gitee.com:zhudachangs/test.git
+git push -u origin master
 ```
 
 ## vscode 报错
