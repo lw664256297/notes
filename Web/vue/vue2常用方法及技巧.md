@@ -347,11 +347,11 @@ this.$router.push("/home/first");
 this.$router.push({ path: "/home/first" });
 
 // 命名的路由
-this.$router.push({ name: "home", params: { userId: wise } });
-this.$router.push({ name: "home", query: { userId: wise } });
+this.$router.push({ name: "home", params: { id: "1234567" } });
+this.$router.push({ path: "home", query: { id: "1234567" } });
 
-// 获取
-let id = this.$route.query.id;
+let id = this.$route.query.id; // query获取
+let id = this.$route.params.id; // params获取
 
 // 路由改变title，在需要改变的详情 create 钩子函数使用
 this.$router.currentRoute.meta.title = "编辑API";
